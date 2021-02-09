@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://web.sintesis.com.bo/ws2.1_ws/IntegradoWSService_web.xsd" filename="IntegradoWSService_web.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://web.sintesis.com.bo/ws2.1_ws/IntegradoWSService_web.wsdl" filename="IntegradoWSService.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

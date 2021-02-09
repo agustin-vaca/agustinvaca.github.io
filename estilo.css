@@ -1,0 +1,430 @@
+﻿/*
+    Autor: Agustin Vaca
+    Ultima Modificacion: 01/02/2021
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+    Termina CSS RESET
+*/
+@font-face {
+    font-family: 'Roboto Thin';
+    src: url('/fonts/Roboto-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Light';
+    src: url('/fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url('/fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url('/fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Black';
+    src: url('/fonts/Roboto-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.titulo-login{
+    margin-top: 29.5px;
+    margin-right: 14px;
+}
+
+.form1{
+    display:flex;
+}
+
+.navbar{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    margin: 0 auto 0 auto;
+    background-color: rgb(32, 96, 59);
+    display: flex;
+}
+
+.usuario{
+    position: absolute;
+    align-self:flex-end;
+    left: 85%;
+    margin: 0 auto 0 auto;
+}
+
+.contenedor-salir{
+    height: auto;
+    width: 67px;
+    background-color: red;
+    position: absolute;
+    align-self:flex-end;
+    left: 94%;
+}
+A:link
+{
+	font-weight: bold;
+	font-size: 22pt;
+	color: white;
+	font-style: italic;
+	font-family: 'Roboto Bold';
+	text-decoration: none;
+}	
+		
+A:visited	{	
+	text-decoration:	none;
+	color:	#333399;
+	}	
+		
+A:active	{	
+	text-decoration:	none;
+	color: white;
+	}	
+		
+A:hover	{	
+	text-decoration:	underline;
+    color: white;
+	}
+
+.tabla-entera{
+    position: relative;
+    top: 110px;
+    width: 100%;
+    margin: 1% 15% auto 15%;
+}
+
+.espacio-titulo{
+    height: 60px;
+}
+
+.empresa{
+    width: max-content;
+    display: flex;
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 16px;
+}
+
+#segundopaso{
+    margin-top:45px;
+}
+
+.telefono{
+    font-family: 'Roboto Light', sans-serif;
+    font-size: 16px;
+}
+
+.numero{
+    width: 50px;
+    height: 50px;
+}
+
+.numero2{
+    width:43px;
+    height:43px;
+    margin-left: 15px;
+}
+
+.opciones{
+    height: 100px;
+    width: auto;
+}
+
+.menu{
+    margin: 20px 0 20px 100px;
+    height: 30px;
+    width: 110px;
+    font-size: 18px;
+    font-family: 'Roboto Regular';
+}
+
+p{
+    text-align:center;
+    line-height:64px;
+    font-size: 20px;
+    display:table-cell;
+}
+
+.control-f{
+    font-size: 12pt;
+    padding-top: 80px;
+    font-family:'Roboto Light';
+}
+
+.ingresefecha{
+    margin-left: 5px;
+    line-height: 55px;
+}
+
+.fecha{
+    display: flex;
+    font-family: "Roboto Light";
+    font-size: 16px;
+}
+
+#fecha{
+    padding: 10px;
+    font-family: "Roboto Light";
+    font-size: 16px;
+}
+#fecha2{
+    padding: 10px;
+    padding-left: 4px;
+    font-family: "Roboto Medium";
+}
+
+#margen-dos{
+    margin-bottom: 25px;
+}
+
+.buscar{
+    margin-top:32px;
+}
+
+.tabla-facturas{
+    font-family: 'Roboto Regular';
+    width: 100%;
+    text-align: center;
+}
+
+.campos-tabla{
+    font-family:'Roboto Light';
+    text-align: center;
+}
+
+H1, H2, H3, H4, H5, TH, THEAD, TFOOT
+{
+	font-weight: 700;
+	color: #003366;
+	font-family: 'Roboto', sans-serif;
+	text-decoration: underline;
+}
+H1
+{
+	font-weight: 700;
+	font-size: 0.6em;
+	word-spacing: normal;
+	text-transform: none;
+	direction: ltr;
+	border-top-style: double;
+	text-indent: 20mm;
+	line-height: normal;
+	font-style: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	border-right-style: double;
+	border-left-style: double;
+	letter-spacing: 1mm;
+	background-color: #99cc99;
+	text-align: left;
+	text-decoration: none;
+	border-bottom-style: double;
+}	
+		
+H2
+{
+	border-top: #ff3366 thick double;
+	margin-top: 1mm;
+	font-weight: bold;
+	font-size: 1em;
+	margin-bottom: 3mm;
+	word-spacing: normal;
+	text-transform: none;
+	color: #3300ff;
+	border-bottom: #ff6666 double;
+	font-style: italic;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	letter-spacing: normal;
+	background-color: #ffff66;
+	text-align: center;
+	text-decoration: none;
+}	
+		
+H3	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1.58em;
+	font-weight:	500;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+H4	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1.33em;
+	font-weight:	500;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+H5, DT	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+H6	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	.8em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+TFOOT, THEAD	{	
+	font-size:	1em;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family: Arial, Helvetica, sans-serif;
+	}	
+		
+TH	{	
+	vertical-align:	baseline;
+	font-size:	1em;
+	font-weight:	bold;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family: 'Roboto Regular', sans-serif;
+	}	
+
+
+
+	
+SMALL	{	
+	font-size:	.7em;
+	}	
+
+BIG	{	
+	font-size:	1.17em;
+	}	
+
+BLOCKQUOTE, PRE	{	
+	font-family:	Courier New, monospace;
+	}	
+	
+
+UL LI	{	
+	list-style-type:	square ;
+	}	
+
+UL LI LI	{	
+	list-style-type:	disc;
+	}	
+
+UL LI LI LI	{	
+	list-style-type:	circle;
+	}	
+	
+OL LI	{	
+	list-style-type:	decimal;
+	}	
+
+OL OL LI	{	
+	list-style-type:	lower-alpha;
+	}	
+
+OL OL OL LI	{	
+	list-style-type:	lower-roman;
+	}	
+
+IMG 	{
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	}
+A:link A:active A:visited
+{
+	font-weight: bold;
+	text-transform: capitalize;
+	
+	font-family: 'Arial Unicode MS';
+}
+/* Estilo creado para un control en base a su ID 
+   la etiqueta insertada en el Web Form se llama lblTitulo 
+   Autor: Ing. Fernando Luque Sánchez*/
+#lblTitulo
+{
+	font-size: 6mm;
+	color: blue;
+	border-bottom: #ff3366 thick ridge;
+	font-style: italic;
+	font-family: 'Arial Black';
+}

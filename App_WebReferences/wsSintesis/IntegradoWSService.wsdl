@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:tns="ws.sintesis.com.bo" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="IntegradoWSService" targetNamespace="ws.sintesis.com.bo" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://web.sintesis.com.bo:443/ws2.1_ws/IntegradoWSService_web.xsd" namespace="ws.sintesis.com.bo" />
+    </xsd:schema>
+  </types>
+  <message name="iniciarSesion">
+    <part name="parameters" element="tns:iniciarSesion" />
+  </message>
+  <message name="iniciarSesionResponse">
+    <part name="parameters" element="tns:iniciarSesionResponse" />
+  </message>
+  <message name="obtenerModulos">
+    <part name="parameters" element="tns:obtenerModulos" />
+  </message>
+  <message name="obtenerModulosResponse">
+    <part name="parameters" element="tns:obtenerModulosResponse" />
+  </message>
+  <message name="obtenerCriteriosParaModulo">
+    <part name="parameters" element="tns:obtenerCriteriosParaModulo" />
+  </message>
+  <message name="obtenerCriteriosParaModuloResponse">
+    <part name="parameters" element="tns:obtenerCriteriosParaModuloResponse" />
+  </message>
+  <message name="buscarCliente">
+    <part name="parameters" element="tns:buscarCliente" />
+  </message>
+  <message name="buscarClienteResponse">
+    <part name="parameters" element="tns:buscarClienteResponse" />
+  </message>
+  <message name="buscarItemsDeCuenta">
+    <part name="parameters" element="tns:buscarItemsDeCuenta" />
+  </message>
+  <message name="buscarItemsDeCuentaResponse">
+    <part name="parameters" element="tns:buscarItemsDeCuentaResponse" />
+  </message>
+  <message name="generaSubItemsDeItem">
+    <part name="parameters" element="tns:generaSubItemsDeItem" />
+  </message>
+  <message name="generaSubItemsDeItemResponse">
+    <part name="parameters" element="tns:generaSubItemsDeItemResponse" />
+  </message>
+  <message name="registrarPago">
+    <part name="parameters" element="tns:registrarPago" />
+  </message>
+  <message name="registrarPagoResponse">
+    <part name="parameters" element="tns:registrarPagoResponse" />
+  </message>
+  <message name="validarPago">
+    <part name="parameters" element="tns:validarPago" />
+  </message>
+  <message name="validarPagoResponse">
+    <part name="parameters" element="tns:validarPagoResponse" />
+  </message>
+  <message name="revertirPago">
+    <part name="parameters" element="tns:revertirPago" />
+  </message>
+  <message name="revertirPagoResponse">
+    <part name="parameters" element="tns:revertirPagoResponse" />
+  </message>
+  <message name="obtenerImpresion">
+    <part name="parameters" element="tns:obtenerImpresion" />
+  </message>
+  <message name="obtenerImpresionResponse">
+    <part name="parameters" element="tns:obtenerImpresionResponse" />
+  </message>
+  <message name="obtenerConciliacionResumida">
+    <part name="parameters" element="tns:obtenerConciliacionResumida" />
+  </message>
+  <message name="obtenerConciliacionResumidaResponse">
+    <part name="parameters" element="tns:obtenerConciliacionResumidaResponse" />
+  </message>
+  <message name="obtenerConciliacionDetallada">
+    <part name="parameters" element="tns:obtenerConciliacionDetallada" />
+  </message>
+  <message name="obtenerConciliacionDetalladaResponse">
+    <part name="parameters" element="tns:obtenerConciliacionDetalladaResponse" />
+  </message>
+  <message name="obtenTiposFormul">
+    <part name="parameters" element="tns:obtenTiposFormul" />
+  </message>
+  <message name="obtenTiposFormulResponse">
+    <part name="parameters" element="tns:obtenTiposFormulResponse" />
+  </message>
+  <message name="sesionEstaActiva">
+    <part name="parameters" element="tns:sesionEstaActiva" />
+  </message>
+  <message name="sesionEstaActivaResponse">
+    <part name="parameters" element="tns:sesionEstaActivaResponse" />
+  </message>
+  <message name="servicioEstaActivo">
+    <part name="parameters" element="tns:servicioEstaActivo" />
+  </message>
+  <message name="servicioEstaActivoResponse">
+    <part name="parameters" element="tns:servicioEstaActivoResponse" />
+  </message>
+  <message name="iniciarCompra">
+    <part name="parameters" element="tns:iniciarCompra" />
+  </message>
+  <message name="iniciarCompraResponse">
+    <part name="parameters" element="tns:iniciarCompraResponse" />
+  </message>
+  <message name="buscarProductos">
+    <part name="parameters" element="tns:buscarProductos" />
+  </message>
+  <message name="buscarProductosResponse">
+    <part name="parameters" element="tns:buscarProductosResponse" />
+  </message>
+  <message name="obtenerOperacionesPagadas">
+    <part name="parameters" element="tns:obtenerOperacionesPagadas" />
+  </message>
+  <message name="obtenerOperacionesPagadasResponse">
+    <part name="parameters" element="tns:obtenerOperacionesPagadasResponse" />
+  </message>
+  <portType name="IntegradoWS">
+    <operation name="iniciarSesion">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/iniciarSesionRequest" message="tns:iniciarSesion" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/iniciarSesionResponse" message="tns:iniciarSesionResponse" />
+    </operation>
+    <operation name="obtenerModulos">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerModulosRequest" message="tns:obtenerModulos" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerModulosResponse" message="tns:obtenerModulosResponse" />
+    </operation>
+    <operation name="obtenerCriteriosParaModulo">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerCriteriosParaModuloRequest" message="tns:obtenerCriteriosParaModulo" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerCriteriosParaModuloResponse" message="tns:obtenerCriteriosParaModuloResponse" />
+    </operation>
+    <operation name="buscarCliente">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/buscarClienteRequest" message="tns:buscarCliente" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/buscarClienteResponse" message="tns:buscarClienteResponse" />
+    </operation>
+    <operation name="buscarItemsDeCuenta">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/buscarItemsDeCuentaRequest" message="tns:buscarItemsDeCuenta" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/buscarItemsDeCuentaResponse" message="tns:buscarItemsDeCuentaResponse" />
+    </operation>
+    <operation name="generaSubItemsDeItem">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/generaSubItemsDeItemRequest" message="tns:generaSubItemsDeItem" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/generaSubItemsDeItemResponse" message="tns:generaSubItemsDeItemResponse" />
+    </operation>
+    <operation name="registrarPago">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/registrarPagoRequest" message="tns:registrarPago" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/registrarPagoResponse" message="tns:registrarPagoResponse" />
+    </operation>
+    <operation name="validarPago">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/validarPagoRequest" message="tns:validarPago" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/validarPagoResponse" message="tns:validarPagoResponse" />
+    </operation>
+    <operation name="revertirPago">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/revertirPagoRequest" message="tns:revertirPago" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/revertirPagoResponse" message="tns:revertirPagoResponse" />
+    </operation>
+    <operation name="obtenerImpresion">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerImpresionRequest" message="tns:obtenerImpresion" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerImpresionResponse" message="tns:obtenerImpresionResponse" />
+    </operation>
+    <operation name="obtenerConciliacionResumida">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerConciliacionResumidaRequest" message="tns:obtenerConciliacionResumida" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerConciliacionResumidaResponse" message="tns:obtenerConciliacionResumidaResponse" />
+    </operation>
+    <operation name="obtenerConciliacionDetallada">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerConciliacionDetalladaRequest" message="tns:obtenerConciliacionDetallada" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerConciliacionDetalladaResponse" message="tns:obtenerConciliacionDetalladaResponse" />
+    </operation>
+    <operation name="obtenTiposFormul">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenTiposFormulRequest" message="tns:obtenTiposFormul" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenTiposFormulResponse" message="tns:obtenTiposFormulResponse" />
+    </operation>
+    <operation name="sesionEstaActiva">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/sesionEstaActivaRequest" message="tns:sesionEstaActiva" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/sesionEstaActivaResponse" message="tns:sesionEstaActivaResponse" />
+    </operation>
+    <operation name="servicioEstaActivo">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/servicioEstaActivoRequest" message="tns:servicioEstaActivo" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/servicioEstaActivoResponse" message="tns:servicioEstaActivoResponse" />
+    </operation>
+    <operation name="iniciarCompra">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/iniciarCompraRequest" message="tns:iniciarCompra" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/iniciarCompraResponse" message="tns:iniciarCompraResponse" />
+    </operation>
+    <operation name="buscarProductos">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/buscarProductosRequest" message="tns:buscarProductos" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/buscarProductosResponse" message="tns:buscarProductosResponse" />
+    </operation>
+    <operation name="obtenerOperacionesPagadas">
+      <input wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerOperacionesPagadasRequest" message="tns:obtenerOperacionesPagadas" />
+      <output wsam:Action="ws.sintesis.com.bo/IntegradoWS/obtenerOperacionesPagadasResponse" message="tns:obtenerOperacionesPagadasResponse" />
+    </operation>
+  </portType>
+  <binding name="IntegradoWSPortBinding" type="tns:IntegradoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="iniciarSesion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerModulos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerCriteriosParaModulo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarItemsDeCuenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="generaSubItemsDeItem">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registrarPago">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="validarPago">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="revertirPago">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerImpresion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerConciliacionResumida">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerConciliacionDetallada">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenTiposFormul">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="sesionEstaActiva">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="servicioEstaActivo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="iniciarCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarProductos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerOperacionesPagadas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IntegradoWSService">
+    <port name="IntegradoWSPort" binding="tns:IntegradoWSPortBinding">
+      <soap:address location="https://web.sintesis.com.bo:443/ws2.1_ws/IntegradoWSService" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:ns0="ws.sintesis.com.bo" targetNamespace="ws.sintesis.com.bo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="wsConciliaResumen">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="resumen" nillable="true" type="ns0:wsResumen" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="wsItemPago">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="monto" type="xsd:double" />
+      <xsd:element minOccurs="0" name="nroItem" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="iniciarSesion">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="password" type="xsd:string" />
+      <xsd:element minOccurs="0" name="origenTransaccion" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="buscarProductos">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+      <xsd:element minOccurs="0" name="codCriterio" type="xsd:short" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="codigo" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="revertirPagoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsRespuesta" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="validarPagoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsRespuesta" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsTiposFormularios">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="tiposFormul" nillable="true" type="ns0:wsTipoFormulario" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="wsItem">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dependeDeItem" type="xsd:string" />
+      <xsd:element minOccurs="0" name="descItem" type="xsd:string" />
+      <xsd:element minOccurs="0" name="formaPago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moneda" type="xsd:string" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:double" />
+      <xsd:element minOccurs="0" name="nroItem" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="buscarClienteResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsCuentas" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerOperacionesPagadas">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="buscarItemsDeCuentaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsItems" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerConciliacionDetallada">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="servicioEstaActivo" />
+  <xsd:complexType name="wsSubItem">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="descripcion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="buscarProductosResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsProductos" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="buscarItemsDeCuenta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenTiposFormul">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsItemCompra">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="descItem" type="xsd:string" />
+      <xsd:element minOccurs="0" name="formaPago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nroItem" type="xsd:string" />
+      <xsd:element minOccurs="0" name="precioUnitario" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsModulos">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="modulo" nillable="true" type="ns0:wsModulo" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="wsSubItems">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="subItem" nillable="true" type="ns0:wsSubItem" />
+          <xsd:element minOccurs="0" name="totalItem" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="wsInicioCompra">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="servicio" nillable="true" type="ns0:wsServicioCompra" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerConciliacionDetalladaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsConciliaDetalle" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsOperacion">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cuentaCliente" type="xsd:string" />
+      <xsd:element minOccurs="0" name="estado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:double" />
+      <xsd:element minOccurs="0" name="nroItem" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="sesionEstaActivaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsRespuesta" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerOperacionesPagadasResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsOperPagadas" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsItems">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="cambiaNitYNombreFac" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="ns0:wsItem" />
+          <xsd:element minOccurs="0" name="nitFac" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nombreFac" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tieneRequisito" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="wsCriterio">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="codCriterio" type="xsd:short" />
+      <xsd:element minOccurs="0" name="descripcion" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="etiqueta" nillable="true" type="ns0:wsEtiqueta" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerCriteriosParaModulo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsCuenta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="descServicio" type="xsd:string" />
+      <xsd:element minOccurs="0" name="detalle" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moneda" type="xsd:short" />
+      <xsd:element minOccurs="0" name="nombre" type="xsd:string" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsRespuesta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="codError" type="xsd:int" />
+      <xsd:element minOccurs="0" name="mensaje" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registrarPago">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+      <xsd:element minOccurs="0" name="nombreFac" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nitFac" type="xsd:string" />
+      <xsd:element minOccurs="0" name="direcEnvio" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="items" nillable="true" type="ns0:wsItemPago" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="iniciarSesionResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsInicio" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsOperPagada">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fecha" type="xsd:int" />
+      <xsd:element minOccurs="0" name="moneda" type="xsd:short" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:double" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsConciliaDetalle">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="detalle" nillable="true" type="ns0:wsServicioDetalle" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="wsModulo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="descripcion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoProceso" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerConciliacionResumida">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsServicioCompra">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="descServicio" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moneda" type="xsd:short" />
+      <xsd:element minOccurs="0" name="nitYNombreFacturar" type="xsd:string" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsTipoFormulario">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="codTipo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="descTipo" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsResumen">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cantPagos" type="xsd:int" />
+      <xsd:element minOccurs="0" name="cantRever" type="xsd:int" />
+      <xsd:element minOccurs="0" name="descripcion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moneda" type="xsd:short" />
+      <xsd:element minOccurs="0" name="montoPagos" type="xsd:double" />
+      <xsd:element minOccurs="0" name="montoRever" type="xsd:double" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerCriteriosParaModuloResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsCriterios" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="iniciarCompraResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsInicioCompra" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="iniciarCompra">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="servicioEstaActivoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsRespuesta" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerConciliacionResumidaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsConciliaResumen" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registrarPagoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsRespuesta" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="generaSubItemsDeItemResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsSubItems" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerImpresion">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoFormulario" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsProductos">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="cambiaNitYNombreFac" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="ns0:wsItemCompra" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="wsImpresion">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="lineaFactura" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="wsInicio">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerModulosResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsModulos" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsCuentas">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="cuenta" nillable="true" type="ns0:wsCuenta" />
+          <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+          <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="validarPago">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+      <xsd:element minOccurs="0" name="nombreFac" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nitFac" type="xsd:string" />
+      <xsd:element minOccurs="0" name="direcEnvio" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="items" nillable="true" type="ns0:wsItemPago" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="sesionEstaActiva">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerModulos">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="obtenerImpresionResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsImpresion" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="buscarCliente">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="codCriterio" type="xsd:short" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="codigo" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="revertirPago">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="montoPagado" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsEtiqueta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="etiqueta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipo" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsCriterios">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="criterio" nillable="true" type="ns0:wsCriterio" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="obtenTiposFormulResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:wsTiposFormularios" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsOperPagadas">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:wsRespuesta">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="operPagada" nillable="true" type="ns0:wsOperPagada" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="generaSubItemsDeItem">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOperativo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codModulo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="nroOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperativa" type="xsd:int" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+      <xsd:element minOccurs="0" name="nroItem" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cantidadMonto" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="wsServicioDetalle">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="descServicio" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moneda" type="xsd:short" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="operacionItem" nillable="true" type="ns0:wsOperacion" />
+      <xsd:element minOccurs="0" name="servicio" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="buscarProductos" type="ns0:buscarProductos" />
+  <xsd:element name="iniciarSesion" type="ns0:iniciarSesion" />
+  <xsd:element name="validarPagoResponse" type="ns0:validarPagoResponse" />
+  <xsd:element name="revertirPagoResponse" type="ns0:revertirPagoResponse" />
+  <xsd:element name="obtenerConciliacionResumida" type="ns0:obtenerConciliacionResumida" />
+  <xsd:element name="buscarClienteResponse" type="ns0:buscarClienteResponse" />
+  <xsd:element name="obtenerOperacionesPagadas" type="ns0:obtenerOperacionesPagadas" />
+  <xsd:element name="obtenerCriteriosParaModuloResponse" type="ns0:obtenerCriteriosParaModuloResponse" />
+  <xsd:element name="iniciarCompra" type="ns0:iniciarCompra" />
+  <xsd:element name="iniciarCompraResponse" type="ns0:iniciarCompraResponse" />
+  <xsd:element name="buscarItemsDeCuentaResponse" type="ns0:buscarItemsDeCuentaResponse" />
+  <xsd:element name="obtenerConciliacionDetallada" type="ns0:obtenerConciliacionDetallada" />
+  <xsd:element name="servicioEstaActivoResponse" type="ns0:servicioEstaActivoResponse" />
+  <xsd:element name="servicioEstaActivo" type="ns0:servicioEstaActivo" />
+  <xsd:element name="buscarProductosResponse" type="ns0:buscarProductosResponse" />
+  <xsd:element name="buscarItemsDeCuenta" type="ns0:buscarItemsDeCuenta" />
+  <xsd:element name="obtenerConciliacionResumidaResponse" type="ns0:obtenerConciliacionResumidaResponse" />
+  <xsd:element name="obtenTiposFormul" type="ns0:obtenTiposFormul" />
+  <xsd:element name="registrarPagoResponse" type="ns0:registrarPagoResponse" />
+  <xsd:element name="generaSubItemsDeItemResponse" type="ns0:generaSubItemsDeItemResponse" />
+  <xsd:element name="obtenerImpresion" type="ns0:obtenerImpresion" />
+  <xsd:element name="obtenerConciliacionDetalladaResponse" type="ns0:obtenerConciliacionDetalladaResponse" />
+  <xsd:element name="obtenerModulosResponse" type="ns0:obtenerModulosResponse" />
+  <xsd:element name="sesionEstaActivaResponse" type="ns0:sesionEstaActivaResponse" />
+  <xsd:element name="validarPago" type="ns0:validarPago" />
+  <xsd:element name="obtenerModulos" type="ns0:obtenerModulos" />
+  <xsd:element name="sesionEstaActiva" type="ns0:sesionEstaActiva" />
+  <xsd:element name="obtenerImpresionResponse" type="ns0:obtenerImpresionResponse" />
+  <xsd:element name="obtenerOperacionesPagadasResponse" type="ns0:obtenerOperacionesPagadasResponse" />
+  <xsd:element name="buscarCliente" type="ns0:buscarCliente" />
+  <xsd:element name="obtenerCriteriosParaModulo" type="ns0:obtenerCriteriosParaModulo" />
+  <xsd:element name="registrarPago" type="ns0:registrarPago" />
+  <xsd:element name="revertirPago" type="ns0:revertirPago" />
+  <xsd:element name="obtenTiposFormulResponse" type="ns0:obtenTiposFormulResponse" />
+  <xsd:element name="iniciarSesionResponse" type="ns0:iniciarSesionResponse" />
+  <xsd:element name="generaSubItemsDeItem" type="ns0:generaSubItemsDeItem" />
+</xsd:schema>
